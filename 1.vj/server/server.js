@@ -1,9 +1,22 @@
 import express from 'express';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+
+// CORS - dopusta pozive s frontenda na drugoj domeni (npr. Render)
+app.use((req, res, next) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
 
 // ---------------------------------------------------------------
 // Podaci u memoriji (bez baze) - resetiraju se pri restartu servera
