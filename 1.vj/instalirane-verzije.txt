@@ -1,0 +1,33 @@
+========================================
+INSTALIRANE VERZIJE
+Datum provjere: 2026-10-22
+macOS (arm64): Darwin 26.0
+========================================
+
+zsh
+  verzija:   zsh 5.9 (arm64-apple-darwin26.0)
+
+Node.js
+  verzija:   v25.9.0
+  npm:       11.21.0
+
+Git
+  verzija:   git version 2.54.0 (Apple Git-157)
+
+Homebrew
+  verzija:   Homebrew 7.0.9
+
+Python
+  verzija:   Python 3.12.0
+
+Python package manager
+  instaliran: pip (jedini) - nema uv, poetry, pipx, conda, pyenv
+  verzija:    pip 26.1.2
+  python:     3.12
+
+WebStorm
+  verzija:   2026.2.3
+  build:     WS-262.10968.77
+  lokacija:  /Applications/WebStorm.app
+
+========================================
