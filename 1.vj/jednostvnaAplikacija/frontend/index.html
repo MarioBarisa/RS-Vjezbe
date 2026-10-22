@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello World — Vue + Bootstrap</title>
+
+  <!-- Bootstrap 5.3.8 (CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center">
+
+  <div id="app" class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body p-4 p-md-5 text-center">
+
+            <h1 class="display-6 fw-bold text-primary mb-3">
+              {{ pozdrav }}, {{ ime || 'svijete' }}! 👋
+            </h1>
+
+            <p class="text-secondary mb-4">
+              Jednostavna Vue.js aplikacija s Bootstrapom.
+            </p>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Ime</span>
+              <input
+                v-model="ime"
+                type="text"
+                class="form-control"
+                placeholder="Upiši svoje ime..."
+              />
+            </div>
+
+            <button class="btn btn-primary w-100" @click="broj++">
+              Kliknuo si {{ broj }} puta
+            </button>
+
+            <p class="text-muted small mt-4 mb-0">
+              Vue {{ vueVerzija }} · Bootstrap 5.3.8
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Vue 3 (global build) -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.5.44/dist/vue.global.prod.js"></script>
+
+  <!-- Bootstrap 5.3.8 (JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          ime: '',
+          broj: 0,
+          pozdrav: 'Hello World',
+          vueVerzija: Vue.version
+        };
+      }
+    }).mount('#app');
+  </script>
+
+</body>
+</html>

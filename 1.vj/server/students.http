@@ -1,0 +1,85 @@
+# ============================================================
+#  Studenti API - testni zahtjevi
+#  Otvori u WebStormu / IntelliJju i klikni zeleni "play"
+#  Server mora raditi:  cd 1.vj/server && npm start
+# ============================================================
+
+@baseUrl = http://localhost:3000
+
+# ------------------------------------------------------------
+# 1) ISPIS svih studenata
+# curl http://localhost:3000/studenti
+# ------------------------------------------------------------
+GET {{baseUrl}}/studenti
+
+###
+
+# ------------------------------------------------------------
+# 2) ISPIS jednog studenta
+# curl http://localhost:3000/studenti/1
+# ------------------------------------------------------------
+GET {{baseUrl}}/studenti/1
+
+###
+
+# ------------------------------------------------------------
+# 3) DODAVANJE novog studenta
+# curl -X POST http://localhost:3000/studenti \
+#      -H "Content-Type: application/json" \
+#      -d '{"ime":"Luka","prezime":"Novak","jmbag":"0012345681","godina":1}'
+# ------------------------------------------------------------
+POST {{baseUrl}}/studenti
+Content-Type: application/json
+
+{
+  "ime": "Luka",
+  "prezime": "Novak",
+  "jmbag": "0012345681",
+  "godina": 1
+}
+
+###
+
+# ------------------------------------------------------------
+# 4) UPDATE postojeceg studenta (mijenja samo poslana polja)
+# curl -X PUT http://localhost:3000/studenti/1 \
+#      -H "Content-Type: application/json" \
+#      -d '{"godina":3,"jmbag":"0012345699"}'
+# ------------------------------------------------------------
+PUT {{baseUrl}}/studenti/1
+Content-Type: application/json
+
+{
+  "godina": 3,
+  "jmbag": "0012345699"
+}
+
+###
+
+# ------------------------------------------------------------
+# 5) BRISANJE studenta
+# curl -X DELETE http://localhost:3000/studenti/2
+# ------------------------------------------------------------
+DELETE {{baseUrl}}/studenti/2
+
+###
+
+# ------------------------------------------------------------
+# 6) GRESKE - nepostojeci student (404)
+# curl -i http://localhost:3000/studenti/999
+# ------------------------------------------------------------
+GET {{baseUrl}}/studenti/999
+
+###
+
+# ------------------------------------------------------------
+# 7) GRESKA - dodavanje bez obaveznih polja (400)
+# curl -i -X POST http://localhost:3000/studenti \
+#      -H "Content-Type: application/json" -d '{"ime":"Ana"}'
+# ------------------------------------------------------------
+POST {{baseUrl}}/studenti
+Content-Type: application/json
+
+{
+  "ime": "Ana"
+}

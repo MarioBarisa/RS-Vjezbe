@@ -30,4 +30,8 @@ WebStorm
   build:     WS-262.10968.77
   lokacija:  /Applications/WebStorm.app
 
+HTTP client:
+	Bruno 4.3.0
+
+
 ========================================
