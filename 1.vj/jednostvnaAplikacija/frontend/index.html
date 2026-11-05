@@ -266,6 +266,19 @@
       <pre class="bg-dark text-light rounded p-3 small mb-0">{{ zadnjiZahtjev }}</pre>
     </div>
 
+
+    <div>
+      <h2>Vježba za bod: broj 2</h2>
+      <div class="card shadow-sm border-0 rounded-4 mt-4">
+        <div class="card-body">
+          <h2 class="h5 mb-3">Podaci iz <code>/data/podaci.json</code></h2>
+          <pre class="bg-dark text-light rounded p-3 small mb-0" style="white-space: pre-wrap;">
+      {{ podaciJson ? JSON.stringify(podaciJson, null, 2) : 'Učitavanje...' }}
+          </pre>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- Vue 3 (global build) -->
@@ -292,12 +305,14 @@
           forma: praznaForma(),
           poruka: null,
           zadnjiZahtjev: '',
-          vueVerzija: Vue.version
+          vueVerzija: Vue.version,
+          podaciJson: null
         };
       },
 
       mounted() {
         this.prikaziStudente();
+        this.ucitajJson();
       },
 
       methods: {
@@ -334,6 +349,16 @@
 
         javi(tip, tekst) {
           this.poruka = { tip, tekst };
+        },
+
+        async ucitajJson() {
+          try {
+            const res = await fetch('./data/podaci.json');
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            this.podaciJson = await res.json();
+          } catch (e) {
+            this.javi('danger', 'Greška pri učitavanju JSON-a: ' + e.message);
+          }
         },
 
         spremiApi() {

@@ -1,0 +1,5 @@
+[[{"id": 1, "ime": "Ivan", "prezime": "Horvat", "jmbag": "12332113", "godina": 2},
+  {"id": 2, "ime": "Ana", "prezime": "Kovac", "jmbag": "321123321", "godina": 2},
+  {"id": 3, "ime": "Marko", "prezime": "Babic", "jmbag": "456654456", "godina": 3}],
+  [{"id": 1, "ime": "Ivan", "prezime": "Horvat", "jmbag": "12332113", "godina": 2}, {"id": 2, "ime": "Ana", "prezime": "Kovac", "jmbag": "321123321", "godina": 2}],
+  {"id": 1, "ime": "Ivan", "prezime": "Horvat", "jmbag": "12332113", "godina": 2}]
